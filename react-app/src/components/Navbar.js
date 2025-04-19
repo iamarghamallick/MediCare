@@ -10,7 +10,7 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="navbar">
+        <nav className="navbar" style={{ zIndex: 10000 }}>
             <div className="navbar-container w-full">
                 <div className="nav-brand">
                     <Link to="/">
