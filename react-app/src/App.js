@@ -6,23 +6,27 @@ import NearbyDoctors from "./pages/NearbyDoctors";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
-    <div className="app">
-      <Navbar />
+    <>
+      <ScrollToTop />
+      <div className="app">
+        <Navbar />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/predict" element={<Predict />} />
-          <Route path="/result" element={<Result />} />
-          <Route path="/nearby-doctors" element={<NearbyDoctors />} />
-        </Routes>
-      </main>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/predict" element={<Predict />} />
+            <Route path="/result" element={<Result />} />
+            <Route path="/nearby-doctors" element={<NearbyDoctors />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
