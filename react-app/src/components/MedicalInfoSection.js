@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+const HOST_URL = "https://medicare-4ae8.onrender.com";
+
 const MedicalInfoSection = ({ disease }) => {
     const [data, setData] = useState({
         description: "Loading...",
@@ -13,7 +15,7 @@ const MedicalInfoSection = ({ disease }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("http://localhost:5000/generate_description", {
+                const res = await fetch(`${HOST_URL}/generate_description`, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"

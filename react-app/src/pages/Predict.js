@@ -3,6 +3,8 @@ import { symptoms } from '../data/symptoms';
 import { useNavigate } from 'react-router-dom';
 import { usePrediction } from '../context/PredictionContext';
 
+const HOST_URL = "https://medicare-4ae8.onrender.com";
+
 const Predict = () => {
     const [selectedSymptoms, setSelectedSymptoms] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -51,7 +53,7 @@ const Predict = () => {
         formData.append("custom_symptoms", customSymptoms.join(","));
 
         try {
-            const response = await fetch("http://localhost:5000/predict", {
+            const response = await fetch(`${HOST_URL}/predict`, {
                 method: "POST",
                 body: formData,
             });
