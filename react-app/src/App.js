@@ -1,23 +1,16 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Predict from "./pages/Predict";
 import Result from "./pages/Result";
 import Home from "./pages/Home"; // if you have a homepage
 import NearbyDoctors from "./pages/NearbyDoctors";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <div className="app">
-      <nav className="navbar">
-        <div className="nav-brand">
-          <Link to="/">Disease Predictor</Link>
-        </div>
-        <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/predict">Predict</Link>
-          <Link to="/nearby-doctors">Find Doctors</Link>
-        </div>
-      </nav>
+      <Navbar />
 
       <main>
         <Routes>
@@ -28,9 +21,7 @@ function App() {
         </Routes>
       </main>
 
-      <footer className="footer">
-        <p>&copy; 2025 Disease Predictor. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }

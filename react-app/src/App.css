@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -77,7 +81,6 @@
 }
 
 .nav-links {
-  display: flex;
   gap: 2rem;
 }
 
@@ -1022,4 +1025,235 @@
   .info-tag {
     border: 1px solid #e2e8f0;
   }
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Brand Styles */
+.nav-brand a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.nav-brand a:hover {
+  color: #2563eb;
+}
+
+.brand-icon {
+  margin-right: 0.5rem;
+  font-size: 1.8rem;
+}
+
+/* Navigation Links */
+.nav-links {
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #f0f9ff;
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.nav-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+}
+
+.hamburger-menu span {
+  width: 30px;
+  height: 3px;
+  background: var(--primary-color);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+/* Hamburger Animation */
+.hamburger-menu.open span:first-child {
+  transform: rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.hamburger-menu.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    gap: 0;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none;
+  }
+
+  .brand-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 2rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+/* Large Screen Enhancement */
+@media (min-width: 1025px) {
+  .nav-links a {
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .nav-links a:hover::after {
+    width: 80%;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background-color: #1a1a1a;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .nav-brand a {
+    color: #60a5fa;
+  }
+
+  .nav-links a {
+    color: #e5e7eb;
+  }
+
+  .nav-links a:hover {
+    background-color: #2d3748;
+  }
+
+  .hamburger-menu span {
+    background: #60a5fa;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      background-color: #1a1a1a;
+    }
+
+    .nav-links a {
+      border-bottom-color: #2d3748;
+    }
+  }
+}
+
+/* Active Link Styles */
+.nav-links a.active {
+  color: var(--primary-color);
+  background-color: #f0f9ff;
+  font-weight: 600;
+}
+
+/* Focus States for Accessibility */
+.nav-links a:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
